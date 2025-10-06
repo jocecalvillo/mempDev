@@ -1,0 +1,2 @@
+package com.mx.feenicia.memphis.commom.exception;public class MemphisException {
+}

@@ -1,0 +1,6 @@
+rootProject.name = 'feenicia-memphis'
+include 'memphis-common'
+include 'memphis-persistence'
+include 'memphis-service'
+
+

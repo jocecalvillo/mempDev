@@ -1,0 +1,123 @@
+{
+  "configuration": {
+    "name": "Default",
+    "properties": {
+      "property": [
+        {
+          "name": "log-path",
+          "value": "/etc/feenicia/memphis/logs"
+        },
+        {
+          "name": "nameFile",
+          "value": "memphis"
+        }
+      ]
+    },
+    "appenders":{
+      "Console": {
+        "name": "Console-Appender",
+        "target": "SYSTEM_OUT",
+        "follow": "true",
+        "PatternLayout": {
+          "pattern": "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%tid] %c{1}:%L --- %msg%n"
+        }
+      },
+      "RollingFile": [
+        {
+          "name": "RollingFile-Appender",
+          "fileName":"${log-path}/${nameFile}.log",
+          "filePattern":"${log-path}/${nameFile}_backup/${nameFile}-backup-%d{dd_MMM_yyyy-HH_mm}.log.zip",
+          "PatternLayout": {
+            "pattern":"%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%tid] %c{1}:%L - %m%n"
+          },
+          "Policies": {
+            "CronTriggeringPolicy": {
+              "schedule": "0 0 0 1/1 * ? *"
+            }
+          },
+          "DefaultRolloverStrategy": {
+            "max": "90"
+          }
+        }
+      ]},
+    "loggers": {
+      "logger": [
+        {
+          "name": "com.mx..feenicia.memphis",
+          "level": "info",
+          "additivity": "false",
+          "appender-ref": [
+            {
+              "ref": "Console-Appender",
+              "level": "info"
+            },
+            {
+              "ref": "RollingFile-Appender",
+              "level": "info"
+            }
+          ]
+        },
+        {
+          "name": "com.mx.feenicia.memphis.commom",
+          "level": "info",
+          "additivity": "false",
+          "appender-ref": [
+            {
+              "ref": "Console-Appender",
+              "level": "info"
+            },
+            {
+              "ref": "RollingFile-Appender",
+              "level": "info"
+            }
+          ]
+        },
+        {
+          "name": "org.springframework.data.jpa",
+          "level": "info",
+          "additivity": "false",
+          "appender-ref": [
+            {
+              "ref": "Console-Appender",
+              "level": "info"
+            },
+            {
+              "ref": "RollingFile-Appender",
+              "level": "info"
+            }
+          ]
+        },
+        {
+          "name": "Api",
+          "level": "info",
+          "additivity": "false",
+          "appender-ref": [
+            {
+              "ref": "Console-Appender",
+              "level": "info"
+            },
+            {
+              "ref": "RollingFile-Appender",
+              "level": "info"
+            }
+          ]
+        },
+        {
+          "name": "Invokers",
+          "level": "info",
+          "additivity": "false",
+          "appender-ref": [
+            {
+              "ref": "Console-Appender",
+              "level": "info"
+            },
+            {
+              "ref": "RollingFile-Appender",
+              "level": "info"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

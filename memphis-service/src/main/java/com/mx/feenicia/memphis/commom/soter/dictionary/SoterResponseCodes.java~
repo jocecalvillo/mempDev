@@ -1,0 +1,2 @@
+package com.mx.feenicia.memphis.commom.soter.dictionary;public enum SoterResponseCodes {
+}

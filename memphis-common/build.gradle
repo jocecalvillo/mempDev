@@ -1,0 +1,32 @@
+plugins {
+    id("java")
+}
+
+group = "com.mx.feenicia.memphis.commom"
+version = "0.0.1-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // Lombok
+    compileOnly("org.projectlombok:lombok:1.18.30")
+    annotationProcessor("org.projectlombok:lombok:1.18.30")
+    testCompileOnly("org.projectlombok:lombok:1.18.30")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.30")
+
+    // Validation API (Jakarta EE)
+    implementation("jakarta.validation:jakarta.validation-api:3.0.2")
+
+    // Spring Context
+    implementation("org.springframework:spring-context:6.0.3")
+
+    // Jackson Annotations
+    implementation("com.fasterxml.jackson.core:jackson-annotations:2.14.2")
+}
+
+tasks.test {
+    useJUnitPlatform()
+}

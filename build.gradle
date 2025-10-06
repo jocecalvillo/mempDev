@@ -1,0 +1,18 @@
+plugins {
+	id "org.sonarqube" version "3.4.0.2513"
+}
+
+
+sonarqube {
+	properties {
+		property "sonar.projectName", "Memphis"
+		property "sonar.projectKey", "Memphis"
+		property "sonar.projectVersion", "0.0.1-SNAPSHOT"
+		property "sonar.login","d53a1be7e3222be31d408925b4c3af8688434428"
+		property "sonar.host.url", "http://10.100.10.121"
+		property "sonar.java.coveragePlugin", "jacoco"
+		property "sonar.coverage.jacoco.xmlReportPaths", "${buildDir}/reports/jacoco.xml"
+		property 'sonar.exclusions', "**/MemphisApplication*," +
+				" **/entity/**,**/common/**, **/soter/**,**/security/**,**/config/**"
+	}
+}
